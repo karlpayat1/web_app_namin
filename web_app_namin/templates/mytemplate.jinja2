@@ -1,0 +1,15 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+<div class="content">
+	<form method="POST">
+		Log In: <input type="text" id="login"><br>
+		Password: <input type="password" id="passw"><br>
+		<input type="submit" value="login" name="loginbutton"> 
+		<input type="submit" value="OFF" name="switch">
+		<input type="submit" value="ON" name="switch">
+		<input type="submit" value="BLINK" name="blink">
+		<a href="layout2.jinja2">blah</a>
+	</form>
+</div>
+{% endblock content %}

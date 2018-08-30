@@ -1,0 +1,3 @@
+[run]
+source = web_app_namin
+omit = web_app_namin/test*
