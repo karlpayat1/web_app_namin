@@ -16,13 +16,14 @@ def my_view(request):
 	if 'blink' in request.params:
 		os.system("python3 /home/pi/Desktop/blink.py")
 	if 'register-now' in request.params:
+		print("REGISTER")
 		firstname = request.params['fname']
 		lastname = request.params['lname']
 		username = request.params['username']
 		password = request.params['password']
 		if AppUsers.objects(username=username).first():
 			return{"error": "USERNAME ALREADY EXISTS"}
-		x=AppUsers(firstname=firstname,lastname=lastname,username=username,password=password)
+		x = AppUsers(firstname=firstname,lastname=lastname,username=username,password=password)
 		x.save()
 	return {'project': 'web-app-namin'}
 
