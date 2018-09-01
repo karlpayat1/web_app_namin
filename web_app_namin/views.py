@@ -4,6 +4,7 @@ import os
 from .models import *
 from bson import ObjectId
 from pyramid.httpexceptions import HTTPFound
+from mongoengine
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(10, GPIO.OUT)
@@ -14,6 +15,14 @@ def my_view(request):
 		GPIO.output(10, request.params['switch'] == "ON")
 	if 'blink' in request.params:
 		os.system("python3 /home/pi/Desktop/blink.py")
+	if 'firstname' in request.params:
+		finame=str(request.POST.get('firstname'))
+		laname=str(request.POST.get('lastname'))
+		uname=str(request.POST.get('username'))
+		if AppUsers.objects(username=uname).first():
+			return{"error": "USERNAME ALREADY EXISTS"}
+		x=AppUsers(firstname=finame,lastname=laname,username=uname)
+		x.save()
 	return {'project': 'web-app-namin'}
 
 def app_users(request):
