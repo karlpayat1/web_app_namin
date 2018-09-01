@@ -4,7 +4,7 @@ import os
 from .models import *
 from bson import ObjectId
 from pyramid.httpexceptions import HTTPFound
-from mongoengine
+from mongoengine import *
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(10, GPIO.OUT)
