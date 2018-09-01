@@ -19,11 +19,9 @@ def my_view(request):
 def app_users(request):
 	finame=str(request.POST.get('firstname'))
 	laname=str(request.POST.get('lastname'))
-	dcrption=str(request.POST.get('description'))
 	uname=str(request.POST.get('username'))
-	pnumber=str(request.POST.get('phonenumber'))
 	if AppUsers.objects(username=uname).first():
 		return{"error": "USERNAME ALREADY EXISTS"}
-	x=AppUsers(firstname=finame,lastname=laname,description=dcrption,username=uname,phonenumber=pnumber)
+	x=AppUsers(firstname=finame,lastname=laname,username=uname)
 	x.save()
 	return{"response": "DATA ADDED"}
