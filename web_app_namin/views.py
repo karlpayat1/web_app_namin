@@ -20,7 +20,7 @@ def my_view(request):
 		lastname = request.params['lname']
 		username = request.params['username']
 		password = request.params['password']
-		if AppUsers.objects(username=uname).first():
+		if AppUsers.objects(username=username).first():
 			return{"error": "USERNAME ALREADY EXISTS"}
 		x=AppUsers(firstname=firstname,lastname=lastname,username=username,password=password)
 		x.save()
